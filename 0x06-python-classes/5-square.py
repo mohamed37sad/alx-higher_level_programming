@@ -1,89 +1,39 @@
-s is a module that Write a class Square
-"""
+#!/usr/bin/python3
+"""Define a class Square."""
 
 
 class Square:
-    """
-    This is a module that Write a class Square
+    """Represent a square."""
 
-    Attributes:
-        size (int): Human readable string describing the exception.
-    """
-    def __init__(self, size=0):
-        """
-        The __init__ method may be documented in either the class level
-        docstring, or as a docstring on the __init__ method itself.
-
-        Either form is acceptable, but the two should not be mixed. Choose one
-        convention to document the __init__ method and be consistent with it.
-
-        Note:
-            Do not include the `self` parameter in the ``Args`` section.
-
+    def __init__(self, size):
+        """Initialize a new square.
         Args:
-            size (int): Description of `param1`.
+            size (int): The size of the new square.
         """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = size
-        """
-        Private instance attribute: size
-        """
-    def area(self):
-        """
-        Note:
-            Do not include the `self` parameter in the ``Args`` section.
-
-        Args:
-
-        Returns:
-            Area
-        """
-        return self.__size * self.__size
+        self.size = size
 
     @property
     def size(self):
-        """
-        Note:
-            Do not include the `self` parameter in the ``Args`` section.
-
-        Args:
-
-        Returns:
-            Size
-        """
-        return self.__size
+        """Get/set the current size of the square."""
+        return (self.__size)
 
     @size.setter
     def size(self, value):
-        """
-        Note:
-            Do not include the `self` parameter in the ``Args`` section.
-
-        Args:
-            value (int): value int
-        Returns:
-            Area
-        """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        if value < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
 
+    def area(self):
+        """Return the current area of the square."""
+        return (self.__size * self.__size)
+
     def my_print(self):
-        """
-        Note:
-            Do not include the `self` parameter in the ``Args`` section.
-
-        Args:
-
-        Returns:
-        """
+        """Print the square with the # character."""
+        for i in range(0, self.__size):
+            [print("#", end="") for j in range(self.__size)]
+            print("")
         if self.__size == 0:
             print("")
-        else:
-            for i in range(self.size):
-                print("#" * self.__size)
+
